@@ -12,6 +12,12 @@ export default (ExpressApp: Express.Express, ...objects: any[]) => {
             .setHandler(require("./endpoints/get/users/user-id")(objects)),
     ]
 
+    // Do not delete!!!
+    applyEndpoints(ExpressApp, Endpoints);
+}
+
+// Takes endpoint definitions and applies them to the Express application
+function applyEndpoints(ExpressApp: Express.Express, Endpoints: ExpressEndpoint[]) : void {
     for (let endpoint of Endpoints) {
         if (!endpoint.active) continue; // Skip this one!
 
@@ -64,4 +70,3 @@ export default (ExpressApp: Express.Express, ...objects: any[]) => {
         }
     }
 }
-
