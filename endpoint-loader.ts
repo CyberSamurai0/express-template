@@ -4,13 +4,15 @@ import * as Express from "express";
 
 // Add function arguments as needed
 export default (ExpressApp: Express.Express, ...objects: any[]) => {
+
+    // TODO ADD ENDPOINT DEFINITIONS HERE
     let Endpoints: ExpressEndpoint[] = [
         new ExpressEndpoint(Method.GET, "/users", true, false, 0)
             .setHandler(require("../endpoints/get/users")(objects)),
 
         new ExpressEndpoint(Method.GET, "/users/:userID", true, false, 0)
             .setHandler(require("./endpoints/get/users/user-id")(objects)),
-    ]
+    ];
 
     // Do not delete!!!
     applyEndpoints(ExpressApp, Endpoints);
