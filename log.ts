@@ -1,5 +1,5 @@
 // Output Styling Methods
-enum ANSI {
+export enum ANSI {
     RESET   = "\x1b[0m",
     BLACK   = "\x1b[30m",
     RED     = "\x1b[31m",
