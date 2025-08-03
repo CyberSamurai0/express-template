@@ -1,4 +1,4 @@
-import {Request, Response} from "express";
+import {NextFunction, Request, Response} from "express";
 
 export enum Method {
     GET = "GET",
@@ -23,7 +23,7 @@ export class ExpressEndpoint {
     active: boolean;
 
     // Function that will handle endpoint requests
-    handler: (req: Request, res: Response, next: Function) => void;
+    handler: (req: Request, res: Response, next: NextFunction) => void;
 
     // Require authorized JSON Web Token
     authenticated: boolean;
