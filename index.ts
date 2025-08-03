@@ -3,7 +3,6 @@ import EndpointLoader from "./endpoint-loader";
 import {warn, info, ok, err, power} from "./log";
 
 let app : Express.Express = Express();
-
 const port : string = process.env.SERVER_PORT || "3000";
 
 
