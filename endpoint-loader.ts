@@ -5,7 +5,10 @@ import * as Express from "express";
 // Add function arguments as needed
 export default (ExpressApp: Express.Express, ...objects: any[]) => {
 
-    // TODO ADD ENDPOINT DEFINITIONS HERE
+    /**
+     * TODO You as the user should define endpoints here.
+     * This allows for ordered routing and improved control over their behavior.
+     */
     let Endpoints: ExpressEndpoint[] = [
         new ExpressEndpoint(Method.GET, "/users", true, false, 0)
             .setHandler(require("../endpoints/get/users")(objects)),
