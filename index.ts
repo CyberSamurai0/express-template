@@ -24,6 +24,16 @@ app.use(logAccess);
 EndpointLoader(app);
 
 
+// Fallback to 404 if no other handlers match.
+// THIS MUST BE THE FINAL MIDDLEWARE
+function fallback404(req : Express.Request, res : Express.Response, next: Express.NextFunction) {
+    // TODO this is unsanitized input
+    info(`${req.method} ${req.path} not found, returning 404`);
+    res.sendStatus(404);
+}
+app.use(fallback404);
+
+
 // Bind server to listening port
 app.listen(port, () => {
     power(`App listening at http://${process.env.SERVER_IP}:${port}`);
