@@ -16,6 +16,15 @@ paths:
                 type: array
                 items:
                   type: string
+  /users/create:
+    post:
+      responses:
+        "200":
+          description: "Successfully created user"
+        "409":
+          description: "User already exists"
+        "400":
+          description: "Malformed request body"
   /users/{userID}:
     get:
       responses:
