@@ -31,7 +31,7 @@ export class ExpressEndpoint {
     // Allowed requests per minute (integer)
     rateLimit: number;
 
-    constructor(method: Method, path: string = null, active: boolean, authenticated: boolean = false, rateLimit: number = 0) {
+    constructor(method: Method, path: string = "", active: boolean, authenticated: boolean = false, rateLimit: number = 0) {
         this.method = method;
         this.path = path;
         this.active = active;
