@@ -19,6 +19,16 @@ export = (args: any[]) => {
     return (req: Request, res: Response, next: NextFunction) => {
         const _userID: string = encodeURI(req.params["userID"]);
 
+        if (database.includes(_userID)) {
+            // Send JSON table with user attributes
+            res.status(200).send({
+                id: _userID,
+                exists: true
+            });
+        } else {
+            res.sendStatus(404); // Not Found
+        }
+
         if (_userID === "1") res.sendStatus(200); // If GET /users/1 then respond with 200 OK
         else res.sendStatus(404);
     }
