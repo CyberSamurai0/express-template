@@ -42,7 +42,7 @@ export class ExpressEndpoint {
         this.handler = () : void => {};
     }
 
-    setHandler(handler: (req: Request, res: Response, next: Function) => void) : ExpressEndpoint {
+    setHandler(handler: (req: Request, res: Response, next: NextFunction) => void) : ExpressEndpoint {
         this.handler = handler;
         return this;
     }
