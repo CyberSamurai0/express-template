@@ -1,4 +1,3 @@
-import {ExpressEndpoint} from "../../../classes/express-endpoint";
 import {NextFunction, Request, Response} from "express";
 
 /**
