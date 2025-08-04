@@ -59,7 +59,7 @@ EndpointLoader(app, database);
 // THIS MUST BE THE FINAL MIDDLEWARE
 function fallback404(req : Express.Request, res : Express.Response, next: Express.NextFunction) {
     let _path : string = encodeURI(req.path);
-    info(`${req.method} ${_path} not found, returning 404`);
+    info(`"${req.method} ${_path}" not found, returning 404`);
     res.sendStatus(404);
 }
 app.use(fallback404);
