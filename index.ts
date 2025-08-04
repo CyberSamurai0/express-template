@@ -49,6 +49,7 @@ app.use(logAccess);
 let database: string[] = ['1', '2', '3'];
 
 // Invoke the endpoint loader (./endpoint-loader.ts)
+power("Registering endpoints to Express");
 EndpointLoader(app, database);
 // Beyond this point, all middleware are processed after endpoint handlers, not before.
 // If a matching handler does not call next(), these will never be invoked.
@@ -62,9 +63,10 @@ function fallback404(req : Express.Request, res : Express.Response, next: Expres
     res.sendStatus(404);
 }
 app.use(fallback404);
+warn("Requests without a matching endpoint will fallback to 404");
 
 
 // Bind server to listening port
 app.listen(port, () => {
-    power(`App listening at http://${process.env.SERVER_IP}:${port}`);
+    power(`App listening at http://${process.env.SERVER_IP || "127.0.0.1"}:${port}`);
 });
