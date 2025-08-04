@@ -17,7 +17,10 @@ export default (ExpressApp: Express.Express, ...objects: any[]) => {
             .setHandler(require("./endpoints/get/users/user-id")(objects)),
     ];
 
-    // Do not delete!!!
+    /**
+     * Apply the endpoints defined above as valid Express routes.
+     * Endpoints with `active: false` are skipped.
+     */
     applyEndpoints(ExpressApp, Endpoints);
 }
 
