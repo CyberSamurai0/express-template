@@ -28,8 +28,5 @@ export = (args: any[]) => {
         } else {
             res.sendStatus(404); // Not Found
         }
-
-        if (_userID === "1") res.sendStatus(200); // If GET /users/1 then respond with 200 OK
-        else res.sendStatus(404);
     }
 }
