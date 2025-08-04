@@ -11,7 +11,7 @@ export default (ExpressApp: Express.Express, ...objects: any[]) => {
      */
     let Endpoints: ExpressEndpoint[] = [
         new ExpressEndpoint(Method.GET, "/users", true, false, 0)
-            .setHandler(require("../endpoints/get/users")(objects)),
+            .setHandler(require("./endpoints/get/users")(objects)),
 
         new ExpressEndpoint(Method.GET, "/users/:userID", true, false, 0)
             .setHandler(require("./endpoints/get/users/user-id")(objects)),
