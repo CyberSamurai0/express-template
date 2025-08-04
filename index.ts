@@ -50,6 +50,8 @@ let database: string[] = ['1', '2', '3'];
 
 // Invoke the endpoint loader (./endpoint-loader.ts)
 EndpointLoader(app, database);
+// Beyond this point, all middleware are processed after endpoint handlers, not before.
+// If a matching handler does not call next(), these will never be invoked.
 
 
 // Fallback to 404 if no other handlers match.
