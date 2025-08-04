@@ -45,9 +45,11 @@ function logAccess(req : Express.Request, res : Express.Response, next: Express.
 }
 app.use(logAccess);
 
+// Create a "database" for storage
+let database: string[] = ['1', '2', '3'];
 
 // Invoke the endpoint loader (./endpoint-loader.ts)
-EndpointLoader(app);
+EndpointLoader(app, database);
 
 
 // Fallback to 404 if no other handlers match.
