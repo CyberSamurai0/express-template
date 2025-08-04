@@ -37,6 +37,9 @@ export class ExpressEndpoint {
         this.active = active;
         this.authenticated = authenticated;
         this.rateLimit = rateLimit;
+
+        // Provide a default value (noop function)
+        this.handler = () : void => {};
     }
 
     setHandler(handler: (req: Request, res: Response, next: Function) => void) : ExpressEndpoint {
