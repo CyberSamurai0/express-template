@@ -25,7 +25,7 @@ function dateString() {
 }
 
 export function warn(msg: string) : void {console.log(`${ANSI.YELLOW}[${dateString()}] [WARN] ${msg}${ANSI.RESET}`)};
-export function info(msg: string) : void {console.log(`${ANSI.BLUE}[${dateString()}] [WARN] ${msg}${ANSI.RESET}`)};
-export function ok(msg: string) : void {console.log(`${ANSI.GREEN}[${dateString()}] [WARN] ${msg}${ANSI.RESET}`)};
-export function err(msg: string) : void {console.log(`${ANSI.RED}[${dateString()}] [WARN] ${msg}${ANSI.RESET}`)};
-export function power(msg: string) : void {console.log(`${ANSI.CYAN}[${dateString()}] [WARN] ${msg}${ANSI.RESET}`)};
+export function info(msg: string) : void {console.log(`${ANSI.BLUE}[${dateString()}] ${msg}${ANSI.RESET}`)};
+export function ok(msg: string) : void {console.log(`${ANSI.GREEN}[${dateString()}] ${msg}${ANSI.RESET}`)};
+export function err(msg: string) : void {console.log(`${ANSI.RED}[${dateString()}] [ERROR] ${msg}${ANSI.RESET}`)};
+export function power(msg: string) : void {console.log(`${ANSI.CYAN}[${dateString()}] [SYSTEM] ${msg}${ANSI.RESET}`)};
