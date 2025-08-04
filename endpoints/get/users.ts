@@ -17,8 +17,6 @@ export = (args: any[]) => {
     let database : string[] = args[0] || []; // All args are optional, so provide fallback!
 
     return (req: Request, res: Response, next: NextFunction) => {
-        let users : string[] = [];
-
-        res.status(200).send(users);
+        res.status(200).send(database);
     }
 }
