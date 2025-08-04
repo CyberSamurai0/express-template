@@ -10,8 +10,11 @@ import {NextFunction, Request, Response} from "express";
  * This is to provide compatibility with CommonJS require() for
  * inline ExpressEndpoint definitions.
  */
-export = (args: Object[]) => {
-    let database : Object = args[0]; // Example - pass in a reference to the database object for querying
+export = (args: any[]) => {
+    // Example use case - pass in a reference to a database object for querying
+    // In this case our "database" is just a string array containing user IDs
+    if (!args[0]) throw new Error("/users/{userID} expects argument: database : string[]");
+    let database : string[] = args[0] || []; // All args are optional, so provide fallback!
 
     return (req: Request, res: Response, next: NextFunction) => {
         const _userID: string = encodeURI(req.params["userID"]);
