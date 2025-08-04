@@ -29,7 +29,7 @@ function logAccess(req : Express.Request, res : Express.Response, next: Express.
     let _path : string = encodeURI(req.path);
     let _protocol : string = encodeURI(req.protocol).toUpperCase();
     let _httpVersion : string = encodeURI(req.httpVersion);
-    let _userAgent : string = encodeURI(req.get("User-Agent"));
+    let _userAgent : string = encodeURI(req.get("User-Agent") || "");
 
     // console.log(); // Newline - not really needed?
     info(`"${req.method} ${_path} ${_protocol}/${_httpVersion}" "${_userAgent}"`);
