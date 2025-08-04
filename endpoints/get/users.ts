@@ -9,6 +9,8 @@ import {NextFunction, Request, Response} from "express";
  * Note that we're using `export =` rather than `export default`.
  * This is to provide compatibility with CommonJS require() for
  * inline ExpressEndpoint definitions.
+ *
+ * @param args Optional arguments supplied via endpoint-loader.ts
  */
 export = (args: any[]) => {
     // Example use case - pass in a reference to a database object for querying
