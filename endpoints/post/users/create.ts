@@ -19,8 +19,13 @@ export = (args: any[]) => {
     let database : string[] = args[0];
 
     return (req: Request, res: Response, next: NextFunction) => {
-        res.sendStatus(403); // Not yet implemented
-
-        // TODO need json body parser so we can interpret POST body
+        // Check if request contains {id: string}
+        if (req.body.hasOwnProperty("id")) {
+            let _id: string = req.body.id;
+            if (!database.includes(_id)) {
+                database.push(_id); // Add ID to database
+                res.sendStatus(200);
+            } else res.sendStatus(409); // User already exists
+        } else res.sendStatus(400); // Bad request
     }
 }

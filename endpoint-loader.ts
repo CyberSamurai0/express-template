@@ -19,6 +19,9 @@ export default (ExpressApp: Express.Express, ...objects: any[]) => {
 
         new ExpressEndpoint(Method.GET, "/users/:userID", true, false, 0)
             .setHandler(require("./endpoints/get/users/user-id")(objects)),
+
+        new ExpressEndpoint(Method.POST, "/users/create", true, false, 0)
+            .setHandler(require("./endpoints/post/users/create")(objects)),
     ];
 
     /**
