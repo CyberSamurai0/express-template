@@ -2,7 +2,11 @@ import {Method, ExpressEndpoint} from "./classes/express-endpoint";
 import {warn, info, ok, err, power} from "./log";
 import * as Express from "express";
 
-// Add function arguments as needed
+/**
+ * Convert a predefined list of ExpressEndpoints into registered routes.
+ * @param ExpressApp The Express app that should register these endpoints.
+ * @param objects Optional arguments you'd like to scope into your handler functions.
+ */
 export default (ExpressApp: Express.Express, ...objects: any[]) => {
 
     /**
