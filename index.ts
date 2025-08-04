@@ -22,6 +22,12 @@ function validateMethod(req: Express.Request, res: Express.Response, next: Expre
 }
 app.use(validateMethod);
 
+function sanitize(s: string): string {
+    return String(s)
+        .replace(/[\r\n\t]/g, '') // Remove control characters
+        .replace(/[\x00-\x1F\x7F]/g, '') // Remove unprintable hex characters
+        .replace(/"/g, '\\"'); // Escape double quotes
+}
 
 // Log all incoming requests to the console.
 function logAccess(req : Express.Request, res : Express.Response, next: Express.NextFunction) {
@@ -29,7 +35,7 @@ function logAccess(req : Express.Request, res : Express.Response, next: Express.
     let _path : string = encodeURI(req.path);
     let _protocol : string = encodeURI(req.protocol).toUpperCase();
     let _httpVersion : string = encodeURI(req.httpVersion);
-    let _userAgent : string = encodeURI(req.get("User-Agent") || "");
+    let _userAgent : string = sanitize(req.get("User-Agent") || "");
 
     // console.log(); // Newline - not really needed?
     info(`"${req.method} ${_path} ${_protocol}/${_httpVersion}" "${_userAgent}"`);
