@@ -2,7 +2,7 @@ import express, * as Express from "express";
 import EndpointLoader from "./endpoint-loader";
 import {warn, info, ok, err, power} from "./log";
 
-let app : Express.Application = express();
+let app : Express.Express = express();
 const port : string = process.env.SERVER_PORT || "3000";
 
 
